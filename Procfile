@@ -1,1 +1,1 @@
-web: gunicorn farmeasy.wsgi --log-file -
+web: gunicorn FarmEasy.wsgi --log-file -
