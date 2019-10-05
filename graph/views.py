@@ -29,7 +29,7 @@ class MonthlyRainfallAccToRegion(APIView):
         df=pd.read_csv('./data/rainfall in india 1901-2015.csv')
         df=df.loc[df['SUBDIVISION']==region]
         df=df.loc[df['YEAR']==year]
-        df.drop('ANNUAL',axis=1,inplace=True)
+    
         df.drop('Jan-Feb',axis=1,inplace=True)
         df.drop('Mar-May',axis=1,inplace=True)
         df.drop('Jun-Sep',axis=1,inplace=True)
