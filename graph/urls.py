@@ -12,4 +12,7 @@ urlpatterns = [
     path('range/',views.Range.as_view(),name='Range'),
     path('pdf/',views.pdfformat.as_view(),name='pdf')
     
+
+    path('predicted_rain/',views.PredictedResultView.as_view(),name='predictions'),
+
 ]
