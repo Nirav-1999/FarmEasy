@@ -10,5 +10,7 @@ urlpatterns = [
     path('yearly_rain/',views.RainfallYearView.as_view(),name = 'yearly-rain'),
 
     path('range/',views.Range.as_view(),name='Range'),
+    path('predicted_rain/',views.PredictedResultView.as_view(),name='predictions'),
+    path('pdf/',views.pdfformat.as_view(),name='pdf')
 
 ]
