@@ -49,6 +49,24 @@ class MonthlyRainfallAccToRegion(APIView):
             'Monthly_Rain': df
         })
 
+class MonthlyRainfallAccToRegion(APIView):
+    def post(self,request):
+        region=request.data['Crop']
+        year=request.data['Year']
+        df=pd.read_csv('./data/rainfall.csv')
+        df=df.loc[df['SUBDIVISION']==region]
+        df=df.loc[df['YEAR']==int(year)]
+        df.drop('SUBDIVISION',axis=1,inplace=True)
+        df.drop('YEAR',axis=1,inplace=True)
+        df.drop('Jan-Feb',axis=1,inplace=True)
+        df.drop('Mar-May',axis=1,inplace=True)
+        df.drop('Jun-Sep',axis=1,inplace=True)
+        df.drop('Oct-Dec',axis=1,inplace=True)
+        df.drop('ANNUAL',axis=1,inplace=True)
+        return Response({
+            'Monthly_Rain': df
+        })
+
 class Range(APIView):
     def get(self,request):
         df=pd.read_csv('./data/rainfall.csv')
